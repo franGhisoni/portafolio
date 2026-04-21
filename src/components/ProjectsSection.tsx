@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Github, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const EASE = [0.16, 1, 0.3, 1] as const;
+
 const ImageCarousel = ({ images }: { images: string[] }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -16,15 +18,15 @@ const ImageCarousel = ({ images }: { images: string[] }) => {
     };
 
     return (
-        <div className="relative w-full h-[300px] mb-8 rounded-lg overflow-hidden group/carousel bg-muted/30">
+        <div className="relative w-full h-[300px] mb-8 rounded-lg overflow-hidden group/carousel bg-muted">
             <AnimatePresence mode="wait">
                 <motion.img
                     key={currentIndex}
                     src={images[currentIndex]}
-                    initial={{ opacity: 0, x: 20 }}
+                    initial={{ opacity: 0, x: 16 }}
                     animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -20 }}
-                    transition={{ duration: 0.3 }}
+                    exit={{ opacity: 0, x: -16 }}
+                    transition={{ duration: 0.5, ease: EASE }}
                     className="absolute inset-0 w-full h-full object-cover"
                     alt={`Project screenshot ${currentIndex + 1}`}
                 />
@@ -34,22 +36,21 @@ const ImageCarousel = ({ images }: { images: string[] }) => {
                 <>
                     <button
                         onClick={prevImage}
-                        className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-background/80 text-foreground opacity-0 group-hover/carousel:opacity-100 transition-opacity hover:bg-background shadow-sm"
+                        className="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-background/85 text-foreground opacity-0 group-hover/carousel:opacity-100 transition-editorial hover:bg-background shadow-sm"
                     >
-                        <ChevronLeft className="w-5 h-5" />
+                        <ChevronLeft className="w-4 h-4" />
                     </button>
                     <button
                         onClick={nextImage}
-                        className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-background/80 text-foreground opacity-0 group-hover/carousel:opacity-100 transition-opacity hover:bg-background shadow-sm"
+                        className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-background/85 text-foreground opacity-0 group-hover/carousel:opacity-100 transition-editorial hover:bg-background shadow-sm"
                     >
-                        <ChevronRight className="w-5 h-5" />
+                        <ChevronRight className="w-4 h-4" />
                     </button>
                     <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
                         {images.map((_, idx) => (
                             <div
                                 key={idx}
-                                className={`w-1.5 h-1.5 rounded-full transition-colors ${idx === currentIndex ? 'bg-foreground' : 'bg-foreground/30'
-                                    }`}
+                                className={`w-1.5 h-1.5 rounded-full transition-editorial ${idx === currentIndex ? 'bg-foreground' : 'bg-foreground/25'}`}
                             />
                         ))}
                     </div>
@@ -71,7 +72,7 @@ export const ProjectsSection = () => {
                 <div className="space-y-4">
                     <p>Hermes is an advanced, full-stack intelligence and automation platform designed to aggregate, process, and distribute news content. It leverages automated web scraping, artificial intelligence, and asynchronous job queues to build a comprehensive end-to-end pipeline from news discovery to curated publication.</p>
 
-                    <h4 className="font-bold text-foreground mt-4">🏗️ Architecture & Core Components</h4>
+                    <h4 className="font-bold text-foreground mt-4">Architecture & Core Components</h4>
                     <ul className="list-disc pl-5 space-y-2">
                         <li><strong>Frontend SPA:</strong> A modern, responsive dashboard built with React 19, styled with Tailwind CSS, and optimized by Vite. It provides a control center for managing sources, configuring AI prompts, and scheduling workflows.</li>
                         <li><strong>Backend API & Workers:</strong> A robust Node.js/Express server built with TypeScript. It orchestrates the entire intelligence pipeline, from HTTP endpoints for the dashboard to heavy background processing tasks.</li>
@@ -79,14 +80,14 @@ export const ProjectsSection = () => {
                         <li><strong>Vector Database:</strong> Postgres enhanced with pgvector and managed via Prisma ORM. It stores both relational application state and high-dimensional vector embeddings of articles to enable advanced semantic search and clustering capabilities.</li>
                     </ul>
 
-                    <h4 className="font-bold text-foreground mt-4">⚡ Key Features</h4>
+                    <h4 className="font-bold text-foreground mt-4">Key Features</h4>
                     <ul className="list-disc pl-5 space-y-2">
                         <li><strong>Decoupled Scraping System:</strong> Implementations of headless browser scraping (Puppeteer with stealth plugins) and lightweight HTTP scraping (Cheerio, Got) to efficiently extract content while bypassing bot protection mechanisms.</li>
                         <li><strong>AI-Powered Content Processing Pipeline:</strong> Integrated with the OpenAI SDK to automatically analyze, score, and categorize incoming articles. AI-driven content transformation, including intelligent rewriting.</li>
                         <li><strong>Dynamic Rule & Workflow Engine:</strong> Highly configurable routing rules that map scraped sources to specific AI prompt templates, and finally to designated publication targets.</li>
                     </ul>
 
-                    <h4 className="font-bold text-foreground mt-4">🛠️ Technology Stack</h4>
+                    <h4 className="font-bold text-foreground mt-4">Technology Stack</h4>
                     <p className="text-sm">
                         <strong>Frontend:</strong> React 19, TypeScript, Vite, Tailwind CSS, Framer Motion<br />
                         <strong>Backend:</strong> Node.js, Express, TypeScript, BullMQ, node-cron<br />
@@ -128,13 +129,13 @@ export const ProjectsSection = () => {
         },
         {
             title: "Zell Go CRM",
-            subtitle: "Cliente-Servidor (PWA + Headless CMS REST API)",
+            subtitle: "PWA + Headless CMS REST API",
             description: "Sistema integral de gestión de clientes y administración interna. Arquitectura PWA mobile-first apoyada por un backend headless CMS.",
             extended: (
                 <div className="space-y-4">
                     <p>ZG-CRM is a comprehensive Customer Relationship Management (CRM) and internal business administration system built from end to end. It centralizes sales operations, technical support (ticketing), employee management, inventory control, and process automation.</p>
 
-                    <h4 className="font-bold text-foreground mt-4">🛠️ Technology Stack</h4>
+                    <h4 className="font-bold text-foreground mt-4">Technology Stack</h4>
 
                     <h5 className="font-semibold text-sm mt-3 text-muted-foreground">Frontend (ZG-Web)</h5>
                     <ul className="list-disc pl-5 space-y-2 text-sm">
@@ -156,10 +157,10 @@ export const ProjectsSection = () => {
                     <h5 className="font-semibold text-sm mt-3 text-muted-foreground">Infrastructure & DevOps</h5>
                     <ul className="list-disc pl-5 space-y-2 text-sm">
                         <li><strong>Containers:</strong> Full dockerization of environments for functional consistency.</li>
-                        <li><strong>Deployment (PaaS):</strong> Automated CI/CD pipelines on Railway and Render. Advanced handling of environment variables.</li>
+                        <li><strong>Deployment (PaaS):</strong> Automated CI/CD pipelines on Railway and Render.</li>
                     </ul>
 
-                    <h4 className="font-bold text-foreground mt-4">🚀 Key Features & Achievements</h4>
+                    <h4 className="font-bold text-foreground mt-4">Key Features & Achievements</h4>
                     <ul className="list-disc pl-5 space-y-2 text-sm">
                         <li><strong>End-to-End Management:</strong> Complete flows for sales registration, inventory and asset management, and administrative approvals.</li>
                         <li><strong>Ticketing & Support:</strong> Robust customer service and tracking system, allowing traceability and escalation of technical or user issues.</li>
@@ -167,9 +168,6 @@ export const ProjectsSection = () => {
                         <li><strong>Scraping Automation:</strong> Internal Strapi module to periodically scrape external sources and dynamically incorporate data, significantly reducing manual data-entry.</li>
                         <li><strong>Analytics Dashboards:</strong> Comprehensive administrative dashboard built with Recharts, giving management real-time visibility into KPIs and metrics.</li>
                     </ul>
-
-                    <h4 className="font-bold text-foreground mt-4">💡 Impact</h4>
-                    <p>The development of ZG-CRM replaced scattered manual processes with a scalable software solution. The decision to use a React PWA architecture substantially improved the user experience (UX) for field workers, while Strapi + PostgreSQL allowed for high iteration speed and flexibility in modeling complex relational databases.</p>
                 </div>
             ),
             tags: ["React 18", "TypeScript", "Tailwind CSS", "Strapi", "PostgreSQL", "PWA", "Puppeteer", "Docker"],
@@ -194,45 +192,46 @@ export const ProjectsSection = () => {
         hidden: { opacity: 0 },
         show: {
             opacity: 1,
-            transition: { staggerChildren: 0.1 }
+            transition: { staggerChildren: 0.12 }
         }
     };
 
     const item = {
-        hidden: { opacity: 0, y: 20 },
-        show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+        hidden: { opacity: 0, y: 24 },
+        show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } }
     };
 
     return (
         <>
             <motion.div
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
                 variants={container}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: true, margin: "-80px" }}
             >
                 {projects.map((project, i) => (
                     <motion.div
                         variants={item}
                         key={i}
                         onClick={() => setSelectedProject(project)}
-                        className="group relative border rounded-lg p-6 bg-background hover:bg-muted/50 hover:border-foreground/30 transition-all flex flex-col h-full cursor-pointer"
+                        className="group relative border border-border rounded-lg p-6 bg-background hover:shadow-[0_4px_24px_rgba(26,26,26,0.07)] hover:border-foreground/20 transition-editorial flex flex-col h-full cursor-pointer"
                     >
                         <div className="flex justify-between items-start mb-2">
-                            <h3 className="text-xl font-bold font-serif group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                            <h3 className="text-xl font-bold font-serif group-hover:text-accent transition-editorial">
                                 {project.title}
                             </h3>
                             <div className="flex gap-3 text-muted-foreground" onClick={e => e.stopPropagation()}>
                                 {project.github && (
-                                    <a href={project.github} target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors">
-                                        <Github className="w-5 h-5" />
+                                    <a href={project.github} target="_blank" rel="noreferrer"
+                                        className="hover:text-accent transition-editorial">
+                                        <Github className="w-4 h-4" />
                                         <span className="sr-only">GitHub</span>
                                     </a>
                                 )}
                             </div>
                         </div>
-                        <p className="text-sm font-semibold text-muted-foreground mb-4">
+                        <p className="text-xs uppercase tracking-[0.12em] text-muted-foreground font-medium mb-4">
                             {project.subtitle}
                         </p>
 
@@ -240,9 +239,9 @@ export const ProjectsSection = () => {
                             {project.description}
                         </p>
 
-                        <div className="flex flex-wrap gap-2 mt-auto">
+                        <div className="flex flex-wrap gap-1.5 mt-auto">
                             {project.tags.map((tag, j) => (
-                                <span key={j} className="text-xs font-medium px-2 py-1 bg-muted/80 text-muted-foreground rounded-md">
+                                <span key={j} className="text-xs font-medium px-2 py-1 bg-muted text-muted-foreground rounded-md">
                                     {tag}
                                 </span>
                             ))}
@@ -259,50 +258,53 @@ export const ProjectsSection = () => {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
+                            transition={{ duration: 0.4, ease: EASE }}
                             onClick={() => setSelectedProject(null)}
-                            className="absolute inset-0 bg-background/80 backdrop-blur-sm"
+                            className="absolute inset-0 bg-foreground/20 backdrop-blur-sm"
                         />
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                            initial={{ opacity: 0, scale: 0.97, y: 24 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
-                            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                            className="relative w-full max-w-3xl bg-background border shadow-2xl rounded-xl p-6 md:p-8 z-10 overflow-y-auto max-h-[90vh] custom-scrollbar mr-2"
+                            exit={{ opacity: 0, scale: 0.97, y: 24 }}
+                            transition={{ duration: 0.5, ease: EASE }}
+                            className="relative w-full max-w-3xl bg-background border border-border shadow-[0_24px_80px_rgba(26,26,26,0.12)] rounded-xl p-6 md:p-10 z-10 overflow-y-auto max-h-[90vh] custom-scrollbar"
                         >
                             <button
                                 onClick={() => setSelectedProject(null)}
-                                className="absolute right-4 top-4 p-2 rounded-md hover:bg-muted transition-colors"
+                                className="absolute right-5 top-5 p-2 rounded-md hover:bg-muted hover:text-accent transition-editorial text-muted-foreground"
                             >
-                                <X className="w-5 h-5" />
+                                <X className="w-4 h-4" />
                                 <span className="sr-only">Close</span>
                             </button>
 
-                            <h2 className="text-3xl font-bold font-serif mb-2">{selectedProject.title}</h2>
-                            <p className="text-lg text-muted-foreground mb-8 pb-4">{selectedProject.subtitle}</p>
+                            <p className="text-xs uppercase tracking-[0.2em] text-accent font-medium mb-3">
+                                {selectedProject.subtitle}
+                            </p>
+                            <h2 className="text-3xl md:text-4xl font-bold font-serif mb-10 leading-tight">
+                                {selectedProject.title}
+                            </h2>
 
                             {selectedProject.images && selectedProject.images.length > 0 && (
                                 <ImageCarousel images={selectedProject.images} />
                             )}
 
-                            <div className="space-y-6">
+                            <div className="space-y-8">
                                 <div>
-                                    <h4 className="font-semibold text-foreground mb-2">Overview</h4>
+                                    <h4 className="text-xs uppercase tracking-[0.18em] font-medium text-accent mb-3">Overview</h4>
                                     <p className="text-muted-foreground leading-relaxed">
                                         {selectedProject.description}
                                     </p>
                                 </div>
 
-                                <div>
-                                    <h4 className="font-semibold text-foreground mb-2 whitespace-nowrap hidden">Overview</h4>
-                                    <div className="text-muted-foreground leading-relaxed">
-                                        {selectedProject.extended}
-                                    </div>
+                                <div className="text-muted-foreground leading-relaxed">
+                                    {selectedProject.extended}
                                 </div>
 
-                                <div className="pt-4 border-t">
-                                    <h4 className="font-semibold text-foreground mb-3">Technologies</h4>
+                                <div className="pt-6 border-t border-border">
+                                    <h4 className="text-xs uppercase tracking-[0.18em] font-medium text-accent mb-4">Technologies</h4>
                                     <div className="flex flex-wrap gap-2">
                                         {selectedProject.tags.map((tag: string, j: number) => (
-                                            <span key={j} className="text-sm font-medium px-3 py-1.5 bg-muted text-foreground rounded-md">
+                                            <span key={j} className="text-xs font-medium px-3 py-1.5 bg-muted text-foreground rounded-md">
                                                 {tag}
                                             </span>
                                         ))}
@@ -310,15 +312,15 @@ export const ProjectsSection = () => {
                                 </div>
 
                                 {selectedProject.github && (
-                                    <div className="pt-6">
+                                    <div>
                                         <a
                                             href={selectedProject.github}
                                             target="_blank"
                                             rel="noreferrer"
-                                            className="inline-flex items-center gap-2 bg-foreground text-background px-4 py-2 rounded-md font-medium hover:opacity-90 transition-opacity"
+                                            className="inline-flex items-center gap-2 bg-foreground text-background px-5 py-2.5 rounded-md text-sm font-medium hover:bg-accent transition-editorial"
                                         >
-                                            <Github className="w-5 h-5" />
-                                            View Source / Repo
+                                            <Github className="w-4 h-4" />
+                                            View on GitHub
                                         </a>
                                     </div>
                                 )}
