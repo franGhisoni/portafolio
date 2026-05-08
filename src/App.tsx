@@ -3,24 +3,14 @@ import { motion } from 'framer-motion';
 import { ExperienceSection } from './components/ExperienceSection';
 import { SkillsSection } from './components/SkillsSection';
 import { ProjectsSection } from './components/ProjectsSection';
+import { Header } from './components/Header';
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 function App() {
   return (
     <div className="min-h-screen">
-      <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container mx-auto max-w-5xl flex h-16 items-center justify-between px-4 md:px-8">
-          <div className="font-serif text-2xl font-bold tracking-tight">
-            FG.
-          </div>
-          <nav className="flex items-center gap-8 text-xs uppercase tracking-[0.18em] font-medium">
-            <a href="#experience" className="transition-editorial hover:text-accent text-foreground/50">Experience</a>
-            <a href="#projects" className="transition-editorial hover:text-accent text-foreground/50">Projects</a>
-            <a href="#skills" className="transition-editorial hover:text-accent text-foreground/50">Skills</a>
-          </nav>
-        </div>
-      </header>
+      <Header />
 
       <main className="container mx-auto max-w-5xl px-4 md:px-8 py-16 md:py-28 space-y-40">
         {/* Hero */}

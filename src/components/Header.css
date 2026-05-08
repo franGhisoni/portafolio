@@ -1,0 +1,90 @@
+/* ─── Floating pill navbar with pastel + grain ──────────────────── */
+
+.fg-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding: 18px 0;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+}
+
+.fg-nav-pill {
+  pointer-events: auto;
+  position: relative;
+  isolation: isolate;
+  width: min(960px, calc(100% - 32px));
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: transparent;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  backdrop-filter: blur(0px) saturate(1);
+  -webkit-backdrop-filter: blur(0px) saturate(1);
+  transition:
+    width 720ms cubic-bezier(0.22, 1, 0.36, 1),
+    background 600ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 600ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 600ms cubic-bezier(0.22, 1, 0.36, 1),
+    backdrop-filter 600ms cubic-bezier(0.22, 1, 0.36, 1),
+    -webkit-backdrop-filter 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fg-nav--scrolled .fg-nav-pill {
+  width: min(720px, calc(100% - 32px));
+  border-color: rgba(26, 26, 26, 0.08);
+  box-shadow:
+    0 22px 48px -28px rgba(26, 26, 26, 0.20),
+    0 1px 0 rgba(255, 255, 255, 0.55) inset;
+  backdrop-filter: blur(20px) saturate(1.5);
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+}
+
+/* Pastel radial blobs — base color layer */
+.fg-nav-pill::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    radial-gradient(70% 220% at 8% 50%, rgba(255, 168, 132, 0.70), transparent 62%),
+    radial-gradient(80% 240% at 50% 130%, rgba(214, 196, 220, 0.55), transparent 65%),
+    radial-gradient(70% 220% at 92% 50%, rgba(150, 184, 220, 0.70), transparent 62%),
+    radial-gradient(55% 180% at 50% -30%, rgba(238, 224, 206, 0.50), transparent 65%);
+  transition: opacity 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.fg-nav--scrolled .fg-nav-pill::before { opacity: 1; }
+
+/* Fine film grain on top of the pastels */
+.fg-nav-pill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+  transition: opacity 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.fg-nav--scrolled .fg-nav-pill::after { opacity: 0.45; }
+
+.fg-nav-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 24px;
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .fg-nav-content { padding: 10px 18px; gap: 12px; }
+  .fg-nav--scrolled .fg-nav-pill { width: calc(100% - 24px); }
+}

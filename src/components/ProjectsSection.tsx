@@ -99,10 +99,33 @@ export const ProjectsSection = () => {
             ),
             tags: ["React 19", "Node.js", "Express", "TypeScript", "BullMQ", "Puppeteer", "PostgreSQL", "pgvector", "Redis", "OpenAI"],
             github: "https://github.com/franGhisoni",
+            link: "https://hermes.ghisoni.com.ar/",
             images: [
                 "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
                 "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
                 "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80"
+            ]
+        },
+        {
+            title: "Sodium Software",
+            subtitle: "Software Factory · AI Agents, Web & Dashboards",
+            description: "Software factory focused on AI agents, websites, scraping pipelines, and dashboards. Designs, builds, and operates the systems your team doesn't want to maintain.",
+            extended: "Sodium Software is the studio brand — a software factory focused on shipping production-grade systems: AI agents, custom web platforms, scraping pipelines, and operational dashboards. The site itself is a showcase of the design language used across client work, built around a custom liquid-glass component system, animated typographic hierarchy, and a refraction-driven visual identity.",
+            tags: ["React", "TypeScript", "Vite", "Liquid Glass", "Framer Motion"],
+            link: "https://sodium.ghisoni.com.ar",
+            images: [
+                "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80"
+            ]
+        },
+        {
+            title: "Estia",
+            subtitle: "Conversational Platform for Real Estate",
+            description: "Conversational platform tailored for real estate agencies — handles property inquiries, lead qualification, and follow-ups end to end through AI-driven conversations.",
+            extended: "Estia is a conversational AI platform built specifically for real estate agencies. It centralizes inbound leads from multiple channels, qualifies prospects through natural-language conversations, and automates follow-ups — keeping agents focused on the deals that matter while the assistant handles routine triage.",
+            tags: ["React", "TypeScript", "Node.js", "AI", "Conversational"],
+            link: "https://estia-website-production.up.railway.app/",
+            images: [
+                "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80"
             ]
         },
         {
@@ -214,7 +237,13 @@ export const ProjectsSection = () => {
                     <motion.div
                         variants={item}
                         key={i}
-                        onClick={() => setSelectedProject(project)}
+                        onClick={() => {
+                            if (project.link) {
+                                window.open(project.link, '_blank', 'noopener,noreferrer');
+                            } else {
+                                setSelectedProject(project);
+                            }
+                        }}
                         className="group relative border border-border rounded-lg p-6 bg-background hover:shadow-[0_4px_24px_rgba(26,26,26,0.07)] hover:border-foreground/20 transition-editorial flex flex-col h-full cursor-pointer"
                     >
                         <div className="flex justify-between items-start mb-2">
