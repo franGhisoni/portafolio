@@ -21,7 +21,7 @@ function App() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, ease: EASE }}
           >
-            Full Stack Engineer
+            AI Product Engineer
           </motion.p>
 
           <motion.h1
@@ -30,9 +30,9 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.0, delay: 0.08, ease: EASE }}
           >
-            Building scalable<br />
-            systems &amp;<br />
-            real-time data tools.
+            Building AI products,<br />
+            autonomous agents &amp;<br />
+            intelligent systems.
           </motion.h1>
 
           <motion.p
@@ -41,7 +41,7 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
           >
-            I'm <span className="text-foreground not-italic font-semibold">Francisco Ghisoni</span>, a Full Stack Software Engineer specializing in backend architectures, microservices, and continuous improvement.
+            I'm <span className="text-foreground not-italic font-semibold">Francisco Ghisoni</span>, an AI Product Engineer specializing in autonomous agents, intelligent workflows, and scalable production backends.
           </motion.p>
 
           <motion.div
