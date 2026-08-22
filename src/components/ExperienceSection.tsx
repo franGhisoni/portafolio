@@ -1,41 +1,56 @@
 
+interface Experience {
+    company: string;
+    role: string;
+    period: string;
+    location: string;
+    description: string[];
+    reference?: string;
+}
+
 export const ExperienceSection = () => {
-    const experiences = [
+    const experiences: Experience[] = [
+        {
+            company: "Sodium Software (Freelance)",
+            role: "Software Engineer",
+            period: "06/2023 — Present",
+            location: "Adrogué, GBA, Argentina",
+            description: [
+                "Peitho — Conversational AI Agent & CRM: Multichannel AI sales agent (WhatsApp, Instagram & Web) that qualifies leads, schedules meetings, and offers inventory 24/7. Direct CRM pipeline integration with sub-minute triage, sales rep metrics, and human escalation alerts.",
+                "Medical Imaging & Diagnostic PACS (Proyecto Diagnósticos): Engineered a high-performance backend monorepo with Node.js/TypeScript and PostgreSQL (Supabase), integrating DICOMweb (Orthanc) for medical imaging with scoped OHIF viewers, automated clinical PDF/XLSX reporting, and async job queues for high-volume diagnostic workflows.",
+                "MedOffice — Clinical EHR & Digital Prescription Platform: Architected a full-stack clinical management monorepo featuring automated medical prescription generation, laboratory study catalogs with determinations, appointment agendas, and validation against national health APIs (RCTA).",
+                "Industrial ERP / MRP & Traceability (Refrigeración Lucciarini): Built an industrial operations platform using a thick-database PostgreSQL/Supabase architecture with Next.js Server Actions, managing Bill of Materials (BOM), QR bidirectional traceability for machines and batches, and automated supply replenishment triggers.",
+                "AI Family Mediation Platform (Mediación): Developed a multiplatform solution (React Native & Web) for conflict resolution using AI (OpenRouter) with strict private position isolation (RN-01), multi-round settlement proposals, legal digital signatures (Ley 25.506), and human mediator escalation.",
+                "Async News AI Pipeline (Hermes): Built an asynchronous backend (Node/Express, Redis, PostgreSQL + pgvector) that scrapes multiple sources, deduplicates via semantic similarity, and rewrites articles for multichannel publishing with a human-in-the-loop workflow.",
+                "AI WhatsApp & Instagram CRM Assistant (Othala): Conversational analytics system integrating WhatsApp, n8n, Google Sheets, and Redis. Interprets natural-language queries and returns real-time business KPIs from multiple data sources."
+            ],
+            reference: "Bruno Bonafine (main client), +54 9 11 3419-9854"
+        },
         {
             company: "Taller de Inversiones",
             role: "Senior Software Engineer",
             period: "03/2025 — 07/2025",
-            location: "Remote, Argentina",
+            location: "Remote, Argentina (Fixed-term contract)",
             description: [
-                "Optimized backend architecture to handle over 10,000 requests per second, using Redis queues with BullMQ.",
-                "Transformed frontend and backend into an asynchronous system, enabling scalable request handling.",
-                "Reduced core endpoints API response time by 800% through query and DB access optimizations.",
-                "Developed web scraping tools that saved the team 20+ hours per week by automating social media data collection workflows.",
-                "Designed and optimized a microservices architecture to improve system maintainability and scalability.",
-                "Designed and developed a web-based endpoint stress test tool allowing optimization of server resources."
-            ]
+                "Re-architected backend for a 200k+ user platform, migrating to an async queue system (Redis + BullMQ) handling 10,000+ req/s, cutting infrastructure costs by ~70%.",
+                "Reduced core endpoint response times by 800% through deep query optimization and database access refactoring.",
+                "Built a full-stack marketing analytics tool (scraping + REST APIs + React dashboard) automating daily reports — saved 100+ hours/month.",
+                "Built an internal web-based load testing tool enabling data-driven server resource optimization.",
+                "Developed automated scraping tools saving 20+ hours/week of manual social media data collection."
+            ],
+            reference: "Federico Glanz (CTO), +54 11 6283-9297"
         },
         {
             company: "Syntex",
-            role: "Analista IT",
+            role: "IT Analyst",
             period: "01/2025 — 03/2025",
-            location: "Luis Guillon, GBA, Argentina",
+            location: "Luis Guillón, GBA, Argentina",
             description: [
                 "Designed and optimized ERP system solutions using MSSQL, enhancing reporting efficiency through advanced query design and stored procedures.",
                 "Spearheaded the integration of AI tools and agile methodologies across departments, automating workflows and improving cross-functional collaboration.",
                 "Developed BI dashboards and advanced data analysis frameworks leveraging MSSQL, enabling real-time reporting and strategic decision-making for stakeholders."
-            ]
-        },
-        {
-            company: "Freelance",
-            role: "Software Engineer",
-            period: "06/2023 — Present",
-            location: "Adrogue, GBA, Argentina",
-            description: [
-                "AI WhatsApp CRM/Marketing Assistant (Othala): Built a conversational analytics system combining WhatsApp, n8n, Google Sheets, and Redis. The agent dynamically returns KPIs interpreting natural-language queries.",
-                "Asynchronous backend pipeline: Leveraged Redis queues to scrape multiple sources, normalize content, detect duplicates via semantic similarity (pgvector), and rewrite articles for multichannel publishing.",
-                "Online Lottery: Developed a responsive web app with secure Mercadopago integration, utilizing a lightweight Supabase backend for real-time data handling and authentication."
-            ]
+            ],
+            reference: "Nehuen Gonzalez (CTO), +54 11 6652-3767"
         },
         {
             company: "ZellGo",
@@ -43,22 +58,22 @@ export const ExperienceSection = () => {
             period: "07/2024 — 10/2025",
             location: "Ciudadela, GBA, Argentina",
             description: [
-                "Led the technological transformation of a startup focused on commercializing telecommunication services (Movistar Fiber).",
+                "Led full technology build-out of a telecom reseller startup (Movistar Fiber): sales tooling, team management systems, and administrative automation.",
                 "Designed and implemented internal tools to automate operational tasks, significantly reducing the administrative workload.",
-                "Coordinated and developed the company's business strategy, defining KPIs and tailored performance metrics."
+                "Defined company KPIs and performance metrics; coordinated business strategy across the team."
             ]
         },
         {
-            company: "Asset Real State",
+            company: "Asset Real Estate",
             role: "Software Engineer",
             period: "11/2022 — 05/2024",
-            location: "La plata, GBA, Argentina",
+            location: "La Plata, GBA, Argentina",
             description: [
-                "Designed and developed full-stack REST API commercial real estate applications.",
-                "Utilized technologies such as Express, React, and MySQL.",
-                "Connected systems across APIs including Google Maps, Monday.com, Holded ERP, Paypal, and MercadoPago.",
-                "Designed and implemented scalable APIs."
-            ]
+                "Designed and built full-stack REST API applications using Node.js/Express, React, and MySQL, integrating Google Maps, Monday.com, Holded ERP, PayPal, and MercadoPago.",
+                "Developed web scraping tools for automated land opportunity discovery and target market analysis.",
+                "Implemented CI/CD pipelines with Railway and Git Flow for efficient, reliable releases."
+            ],
+            reference: "Ramiro Fernandez (Founder), +54 9 2215 72-6769"
         }
     ];
 
@@ -88,9 +103,15 @@ export const ExperienceSection = () => {
                                 </li>
                             ))}
                         </ul>
+                        {exp.reference && (
+                            <p className="text-xs text-muted-foreground/85 pt-2 border-t border-border/40">
+                                <span className="font-semibold text-foreground/90 uppercase tracking-wider text-[11px]">Reference:</span> {exp.reference}
+                            </p>
+                        )}
                     </div>
                 </div>
             ))}
         </div>
     );
 };
+

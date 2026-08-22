@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Github, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Github, X, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -65,6 +65,93 @@ export const ProjectsSection = () => {
 
     const projects = [
         {
+            title: "Peitho",
+            subtitle: "Autonomous AI Sales Agent & CRM Integrator",
+            description: "24/7 AI commercial agent that engages, qualifies, and converts leads across WhatsApp, Instagram, and web in real time, seamlessly syncing with CRM pipelines.",
+            extended: (
+                <div className="space-y-4">
+                    <p>Peitho is an autonomous AI commercial agent engineered to eliminate response latency in sales funnels. Operating 24/7, it handles inbound inquiries with sub-minute response times, dynamically qualifies lead intent and budget, triggers instant alerts or human handoffs for high-priority prospects, and orchestrates appointments directly into calendar systems.</p>
+
+                    <h4 className="font-bold text-foreground mt-4">Core Capabilities & Verticals</h4>
+                    <ul className="list-disc pl-5 space-y-2">
+                        <li><strong>Multi-Channel Inbound Triage:</strong> Seamlessly captures leads from WhatsApp, Instagram DMs, and Web chats with sub-60s response times.</li>
+                        <li><strong>Conversational Lead Scoring:</strong> Evaluates buyer intent, readiness, and budget through natural qualification flows.</li>
+                        <li><strong>Tailored Vertical Solutions:</strong> Ready-to-deploy operational pipelines for Real Estate, High-ticket Luxury Items (Watches/Jewelry), Events, and Auto Dealerships.</li>
+                        <li><strong>CRM & Calendar Synchronization:</strong> Bi-directional sync with internal CRM systems and automated scheduling for qualified sales meetings.</li>
+                    </ul>
+
+                    <h4 className="font-bold text-foreground mt-4">Technology Stack</h4>
+                    <p className="text-sm">
+                        <strong>Frontend:</strong> Next.js 15, React 19, TypeScript, Tailwind CSS v4, Framer Motion<br />
+                        <strong>AI & Orchestration:</strong> LLM Agent Pipelines, WhatsApp Cloud API, Webhooks<br />
+                        <strong>Architecture:</strong> Event-driven async pipelines, CRM bi-directional sync
+                    </p>
+                </div>
+            ),
+            tags: ["Next.js 15", "TypeScript", "Tailwind CSS v4", "AI Agents", "WhatsApp API", "CRM Integration", "Framer Motion"],
+            link: "https://peitho.ghisoni.com.ar",
+            images: [
+                "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80"
+            ]
+        },
+        {
+            title: "Rosaura · Escorihuela Gascón",
+            subtitle: "Luxury Winery Experience & Parallax Showcase",
+            description: "Interactive brand experience and landing page for Escorihuela Gascón's centenary Rosaura Malbec, featuring fluid parallax physics and refined editorial typography.",
+            extended: (
+                <div className="space-y-4">
+                    <p>Interactive, high-end digital showcase developed for Escorihuela Gascón's iconic Rosaura Malbec wine. Built with modern web standards to convey the heritage, terroir, and prestige of one of Mendoza's most historic wineries.</p>
+
+                    <h4 className="font-bold text-foreground mt-4">Key Features & Engineering</h4>
+                    <ul className="list-disc pl-5 space-y-2">
+                        <li><strong>Editorial & Fluid Motion:</strong> Custom Framer Motion scroll-linked animations and parallax vineyard layers with spring physics.</li>
+                        <li><strong>High-Resolution Media Optimization:</strong> WebP asset compression and responsive picture sets tailored for all screen sizes.</li>
+                        <li><strong>High-Conversion Funnel:</strong> Direct, seamless CTA integration with the official Escorihuela Gascón e-commerce store.</li>
+                    </ul>
+
+                    <h4 className="font-bold text-foreground mt-4">Technology Stack</h4>
+                    <p className="text-sm">
+                        <strong>Framework:</strong> Next.js, React, TypeScript<br />
+                        <strong>Styling & Motion:</strong> Tailwind CSS, Framer Motion (useScroll, useSpring)<br />
+                        <strong>Optimization:</strong> Next.js Image optimization, WebP assets
+                    </p>
+                </div>
+            ),
+            tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Parallax UI"],
+            link: "https://escorihuela.com/rosaura/",
+            images: [
+                "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=800&q=80"
+            ]
+        },
+        {
+            title: "Eterna",
+            subtitle: "Medical Aesthetics & Wellness Clinic",
+            description: "Modern, high-conversion web platform and booking showcase for an aesthetic medicine clinic, featuring interactive availability calendars and mobile-first WhatsApp scheduling.",
+            extended: (
+                <div className="space-y-4">
+                    <p>Comprehensive digital presence designed for Eterna aesthetic clinic, focusing on trust, clinical elegance, and friction-free appointment scheduling.</p>
+
+                    <h4 className="font-bold text-foreground mt-4">Key Features</h4>
+                    <ul className="list-disc pl-5 space-y-2">
+                        <li><strong>Interactive Availability Calendar:</strong> Dynamic monthly calendar showcasing real-time available consultation dates.</li>
+                        <li><strong>Direct WhatsApp Booking:</strong> Streamlined scheduling workflow connecting prospective patients directly with clinic coordinators.</li>
+                        <li><strong>Refined Aesthetic UI:</strong> Parallax cards, smooth section navigation, and responsive typography.</li>
+                    </ul>
+
+                    <h4 className="font-bold text-foreground mt-4">Technology Stack</h4>
+                    <p className="text-sm">
+                        <strong>Framework:</strong> Next.js, React, TypeScript<br />
+                        <strong>Styling & UI:</strong> Tailwind CSS, Radix UI, Lucide Icons, Framer Motion
+                    </p>
+                </div>
+            ),
+            tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "UI/UX", "WhatsApp API"],
+            link: "https://eterna.ghisoni.com.ar",
+            images: [
+                "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80"
+            ]
+        },
+        {
             title: "Hermes",
             subtitle: "Automated News Aggregation & AI Processing Engine",
             description: "Advanced full-stack intelligence platform designed to aggregate, process, and distribute news content using AI and asynchronous job queues.",
@@ -129,28 +216,6 @@ export const ProjectsSection = () => {
             ]
         },
         {
-            title: "TDI EP Tester",
-            subtitle: "Robust Artillery Stress Tester",
-            description: "Endpoint stress tester designed for developers. Built to assess and optimize server resource utilization under high load scenarios.",
-            extended: "Created a scalable traffic generation tool simulating thousands of concurrent users to identify request bottlenecks in backend microservices. Resulted in actionable insights that helped optimize database queries and cut endpoint latency by a massive margin.",
-            tags: ["Node.js", "Express", "Artillery", "Performance Testing"],
-            github: "https://github.com/franGhisoni",
-            images: [
-                "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80"
-            ]
-        },
-        {
-            title: "TDI Async High Traffic Core",
-            subtitle: "10k RPS Backend Architecture",
-            description: "High-performance backend transformation utilizing Redis queues and BullMQ to scale request handling asynchronously.",
-            extended: "Transformed a traditional synchronous API into an asynchronous event-driven system to handle traffic spikes. Achieved sustained processing of over 10,000 requests per second. The architectural shift included rigorous query optimizations, caching strategies, and load balancing.",
-            tags: ["Redis", "BullMQ", "Node.js", "Architecture", "Scaling"],
-            github: "https://github.com/franGhisoni",
-            images: [
-                "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&w=800&q=80"
-            ]
-        },
-        {
             title: "Zell Go CRM",
             subtitle: "PWA + Headless CMS REST API",
             description: "Sistema integral de gestión de clientes y administración interna. Arquitectura PWA mobile-first apoyada por un backend headless CMS.",
@@ -199,14 +264,25 @@ export const ProjectsSection = () => {
             ]
         },
         {
-            title: "Frontend Projects",
-            subtitle: "Interactive UI & Applications",
-            description: "Various frontend-focused applications utilizing modern frameworks to build responsive, rich, and performant web properties.",
-            extended: "A collection of web applications demonstrating expertise in HTML, CSS, JavaScript, React, and Tailwind. Focused heavily on high-contrast aesthetics, elegant typographic hierarchies, interactive micro-animations (Framer Motion), and responsive design principles.",
-            tags: ["React", "CSS", "HTML", "Tailwind CSS", "Framer Motion"],
+            title: "TDI Async High Traffic Core",
+            subtitle: "10k RPS Backend Architecture",
+            description: "High-performance backend transformation utilizing Redis queues and BullMQ to scale request handling asynchronously.",
+            extended: "Transformed a traditional synchronous API into an asynchronous event-driven system to handle traffic spikes. Achieved sustained processing of over 10,000 requests per second. The architectural shift included rigorous query optimizations, caching strategies, and load balancing.",
+            tags: ["Redis", "BullMQ", "Node.js", "Architecture", "Scaling"],
             github: "https://github.com/franGhisoni",
             images: [
-                "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=800&q=80"
+                "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&w=800&q=80"
+            ]
+        },
+        {
+            title: "TDI EP Tester",
+            subtitle: "Robust Artillery Stress Tester",
+            description: "Endpoint stress tester designed for developers. Built to assess and optimize server resource utilization under high load scenarios.",
+            extended: "Created a scalable traffic generation tool simulating thousands of concurrent users to identify request bottlenecks in backend microservices. Resulted in actionable insights that helped optimize database queries and cut endpoint latency by a massive margin.",
+            tags: ["Node.js", "Express", "Artillery", "Performance Testing"],
+            github: "https://github.com/franGhisoni",
+            images: [
+                "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80"
             ]
         }
     ];
@@ -256,6 +332,13 @@ export const ProjectsSection = () => {
                                         className="hover:text-accent transition-editorial">
                                         <Github className="w-4 h-4" />
                                         <span className="sr-only">GitHub</span>
+                                    </a>
+                                )}
+                                {project.link && (
+                                    <a href={project.link} target="_blank" rel="noreferrer"
+                                        className="hover:text-accent transition-editorial">
+                                        <ExternalLink className="w-4 h-4" />
+                                        <span className="sr-only">Live Demo</span>
                                     </a>
                                 )}
                             </div>
