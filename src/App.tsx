@@ -1,5 +1,6 @@
 import { Github, Linkedin, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { ClientsSection } from './components/ClientsSection';
 import { ExperienceSection } from './components/ExperienceSection';
 import { SkillsSection } from './components/SkillsSection';
 import { ProjectsSection } from './components/ProjectsSection';
@@ -68,9 +69,17 @@ function App() {
           </motion.div>
         </section>
 
-        <section id="experience" className="border-t border-border pt-16">
+        <section id="clients" className="border-t border-border pt-16">
           <div className="flex items-baseline gap-5 mb-14">
             <span className="text-xs uppercase tracking-[0.22em] text-accent font-medium">01</span>
+            <h2 className="text-4xl md:text-5xl font-bold">Trusted By &amp; Collaborations</h2>
+          </div>
+          <ClientsSection />
+        </section>
+
+        <section id="experience" className="border-t border-border pt-16">
+          <div className="flex items-baseline gap-5 mb-14">
+            <span className="text-xs uppercase tracking-[0.22em] text-accent font-medium">02</span>
             <h2 className="text-4xl md:text-5xl font-bold">Experience</h2>
           </div>
           <ExperienceSection />
@@ -78,7 +87,7 @@ function App() {
 
         <section id="projects" className="border-t border-border pt-16">
           <div className="flex items-baseline gap-5 mb-14">
-            <span className="text-xs uppercase tracking-[0.22em] text-accent font-medium">02</span>
+            <span className="text-xs uppercase tracking-[0.22em] text-accent font-medium">03</span>
             <h2 className="text-4xl md:text-5xl font-bold">Selected Work</h2>
           </div>
           <ProjectsSection />
@@ -86,7 +95,7 @@ function App() {
 
         <section id="skills" className="border-t border-border pt-16 pb-24">
           <div className="flex items-baseline gap-5 mb-14">
-            <span className="text-xs uppercase tracking-[0.22em] text-accent font-medium">03</span>
+            <span className="text-xs uppercase tracking-[0.22em] text-accent font-medium">04</span>
             <h2 className="text-4xl md:text-5xl font-bold">Technical Skills</h2>
           </div>
           <SkillsSection />

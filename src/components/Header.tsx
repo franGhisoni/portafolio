@@ -19,6 +19,9 @@ export const Header = () => {
             FG.
           </a>
           <nav className="flex items-center gap-8 text-xs uppercase tracking-[0.18em] font-medium">
+            <a href="#clients" className="transition-editorial hover:text-accent text-foreground/70">
+              Clients
+            </a>
             <a href="#experience" className="transition-editorial hover:text-accent text-foreground/70">
               Experience
             </a>
