@@ -194,6 +194,97 @@ export const ProjectsSection = () => {
             ]
         },
         {
+            title: "Proyecto Diagnósticos",
+            subtitle: "Medical Imaging PACS & Automated Clinical Reporting",
+            description: "High-performance medical diagnostic monorepo integrating Orthanc DICOMweb with scoped OHIF viewers, async job queues, and automated clinical reporting.",
+            extended: (
+                <div className="space-y-4">
+                    <p>High-performance medical diagnostics monorepo engineered to streamline clinical imaging workflows, automated reporting, and secure patient data delivery. Built to handle intensive medical imaging datasets under strict role-based access controls.</p>
+
+                    <h4 className="font-bold text-foreground mt-4">Architecture & Core Systems</h4>
+                    <ul className="list-disc pl-5 space-y-2">
+                        <li><strong>DICOMweb &amp; Orthanc PACS Integration:</strong> Direct streaming and indexing of diagnostic imaging studies (CT, MRI, X-Ray) with scoped OHIF medical viewer integration.</li>
+                        <li><strong>Async Diagnostic Queues:</strong> Scalable worker pipelines that process high-volume study metadata and asynchronously generate clinical diagnostic reports in PDF and XLSX formats.</li>
+                        <li><strong>Enterprise Monorepo:</strong> Modular architecture separating API gateways, background workers, shared contracts, and clinical web portals.</li>
+                        <li><strong>HIPAA-Aligned Security:</strong> Thick-database isolation with Supabase/PostgreSQL row-level security ensuring strict patient record confidentiality across clinical teams.</li>
+                    </ul>
+
+                    <h4 className="font-bold text-foreground mt-4">Technology Stack</h4>
+                    <p className="text-sm">
+                        <strong>Backend &amp; Core:</strong> Node.js, TypeScript, Express, Supabase, PostgreSQL<br />
+                        <strong>Medical Imaging:</strong> DICOMweb, Orthanc PACS, OHIF Viewer<br />
+                        <strong>Processing &amp; Automation:</strong> Asynchronous Job Queues, PDFKit, ExcelJS
+                    </p>
+                </div>
+            ),
+            tags: ["TypeScript", "Node.js", "PostgreSQL", "Supabase", "DICOMweb", "Orthanc PACS", "OHIF Viewer", "Async Workers"],
+            images: [
+                "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80",
+                "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80"
+            ]
+        },
+        {
+            title: "Proyecto Mediación",
+            subtitle: "AI-Powered Family Dispute Resolution Platform",
+            description: "Multiplatform conflict resolution system using conversational AI to negotiate legal family disputes with strict private position isolation and legal validity.",
+            extended: (
+                <div className="space-y-4">
+                    <p>Developed under Magne Studios, Proyecto Mediación is an innovative legal-tech platform engineered to assist in out-of-court family conflict resolution through AI-guided autocompositive negotiation. Each party enters their demands, priorities, and flexible settlement thresholds in complete privacy.</p>
+
+                    <h4 className="font-bold text-foreground mt-4">Key Capabilities &amp; Legal Framework</h4>
+                    <ul className="list-disc pl-5 space-y-2">
+                        <li><strong>Strict Position Isolation (RN-01):</strong> A proprietary backend rule ensuring neither party ever accesses the other's private positions; the AI mediator evaluates both sets of constraints in an isolated context to propose equitable points of agreement.</li>
+                        <li><strong>Multi-Round Negotiation Engine:</strong> Pluggable AI engine (via OpenRouter) that iterates through rounds of settlement proposals and automatically escalates complex deadlocks to accredited human mediators from round 3.</li>
+                        <li><strong>Legally Binding Digital Signatures:</strong> Complete cryptographic audit trail and digital signature integration compliant with Argentine Digital Signature Law (Ley 25.506) and DocuSign.</li>
+                        <li><strong>Law Firm Web Console:</strong> Comprehensive management SPA for legal practices, casefile organization, and deadline SLA tracking.</li>
+                    </ul>
+
+                    <h4 className="font-bold text-foreground mt-4">Technology Stack</h4>
+                    <p className="text-sm">
+                        <strong>Mobile &amp; Web:</strong> React Native, React, TypeScript, Tailwind CSS<br />
+                        <strong>AI &amp; Orchestration:</strong> OpenRouter API (Pluggable LLMs), Custom Negotiation Engine<br />
+                        <strong>Backend &amp; Security:</strong> Node.js, PostgreSQL, Supabase, DocuSign API, Mercado Pago
+                    </p>
+                </div>
+            ),
+            tags: ["React Native", "TypeScript", "AI Negotiation", "OpenRouter", "PostgreSQL", "Supabase", "DocuSign", "LegalTech"],
+            images: [
+                "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=80",
+                "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80"
+            ]
+        },
+        {
+            title: "MedOffice",
+            subtitle: "Clinical Practice EHR & Certified Digital Prescription Monorepo (RCTA/QBI2)",
+            description: "Production medical EHR monorepo featuring certified Argentine RCTA/QBI2 digital prescriptions, multi-page clinical PDF engine, atomic Supabase RPCs, and psychiatric outpatient workflows.",
+            extended: (
+                <div className="space-y-4">
+                    <p>Full-stack clinical management monorepo engineered for specialized outpatient practices and medical teams (developed under Magne Studios for pediatric psychiatry). MedOffice automates patient electronic health records (EHR), longitudinal consultation timelines, official multi-page digital prescriptions, and multi-tenant organization isolation.</p>
+
+                    <h4 className="font-bold text-foreground mt-4">Clinical Engineering &amp; Regulatory Certification</h4>
+                    <ul className="list-disc pl-5 space-y-2">
+                        <li><strong>Certified RCTA / QBI2 Argentina Integration:</strong> Fully certified and homologated integration with official Argentine electronic prescription standards across major national healthcare providers (OSDE, Luis Pasteur, Accord Salud, and Particular).</li>
+                        <li><strong>Multi-Page Clinical Document Engine:</strong> Automated dynamic assembly and continuous pagination of multi-page legal clinical PDFs with <code>pdf-lib</code>: official prescription slips, detailed posology sheets, laboratory requests with a 23-study catalog and determinations, and clinical reports with embedded digital signatures.</li>
+                        <li><strong>Atomic Database Operations &amp; RPCs:</strong> PostgreSQL/Supabase RPC transactions (<code>medoffice_create_prescription</code>, <code>medoffice_regenerate_prescription</code>) ensuring atomic creation and historical preservation across drug packaging, indications, and clinical studies without ghost records or cross-tenant leakage.</li>
+                        <li><strong>Psychiatric &amp; Outpatient EHR:</strong> Longitudinal clinical timeline, dual diagnostic categorization (behavioral vs. organic), appointment agenda, and role-based access control (Clinician vs. Assistant).</li>
+                    </ul>
+
+                    <h4 className="font-bold text-foreground mt-4">Technology Stack</h4>
+                    <p className="text-sm">
+                        <strong>Frontend:</strong> Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4, Radix UI primitives, Lucide Icons<br />
+                        <strong>Backend:</strong> Fastify, TypeScript, tsx, pdf-lib, Zod, Nodemailer, WebSocket<br />
+                        <strong>Database &amp; Security:</strong> Supabase, PostgreSQL (PL/pgSQL RPCs &amp; RLS), Multi-tenant RBAC<br />
+                        <strong>Regulatory:</strong> RCTA / QBI2 API Integration (Argentina Digital Prescription Certification)
+                    </p>
+                </div>
+            ),
+            tags: ["Next.js 16", "React 19", "Fastify", "TypeScript", "PostgreSQL", "Supabase", "pdf-lib", "RCTA / QBI2", "HealthTech", "EHR"],
+            images: [
+                "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80",
+                "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80"
+            ]
+        },
+        {
             title: "Sodium Software",
             subtitle: "Software Factory · AI Agents, Web & Dashboards",
             description: "Software factory focused on AI agents, websites, scraping pipelines, and dashboards. Designs, builds, and operates the systems your team doesn't want to maintain.",
